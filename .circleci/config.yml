@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+  validate:
+    docker:
+      - image: hashicorp/packer:1.1.1
+    working_directory: ~/packer
+    steps:
+      - checkout
+      - run:
+          name: Validate ami.json
+          command: packer validate ami.json
+
+  build-base:
+    docker:
+      - image: hashicorp/packer:1.1.1
+    working_directory: ~/packer
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/packer
+      - run:
+          name: Install Packer
+          command: |
+            cd ~/
+            cd packer
+            wget https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_386.zip
+            unzip packer_0.9.0_linux_386.zip
+            echo "export PATH=$PATH:~/packer/" >> ~/.bashrc
+      - run:
+          command: pwd && ls
+      - run:
+          name: Build base
+          command: sh buildAmi.sh
+          no_output_timeout: 30m
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - validate
+      - build-base:
+          requires:
+            - validate

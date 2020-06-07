@@ -1,0 +1,47 @@
+{
+    "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": "",
+      "aws_region": "",
+      "subnet_id": "",
+      "ami_description": "",
+      "source_ami": "ami-068663a3c619dd892",
+      "ssh_username": "ubuntu"
+    },
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "region": "{{user `aws_region`}}",
+        "instance_type": "t2.micro",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ami_name": "CSYE6225_A4_{{timestamp}}",
+        "subnet_id": "{{user `subnet_id`}}",
+        "source_ami": "{{user `source_ami`}}",
+        "ami_description": "{{user `ami_description`}}",
+        "launch_block_device_mappings": [
+          {
+            "device_name": "/dev/sda1",
+            "volume_size": 8,
+            "volume_type": "gp2",
+            "delete_on_termination": true
+          }
+        ]
+      }
+    ],
+  
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": [
+          "pwd && ls",
+          "sudo apt update -y",
+          "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash",
+          ". ~/.nvm/nvm.sh",
+          "nvm install node"
+        ]
+      }
+    ]
+  }
+  
