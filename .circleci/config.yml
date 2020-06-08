@@ -28,10 +28,6 @@ jobs:
             echo "export PATH=$PATH:~/packer/" >> ~/.bashrc
       - run:
           command: pwd && ls
-      # - run:
-      #     name: Setup Environment Variables
-      #     command: |
-
       - run:
           name: Build base
           command: sh buildAmi.sh
