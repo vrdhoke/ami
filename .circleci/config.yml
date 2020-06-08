@@ -31,8 +31,8 @@ jobs:
       - run:
           name: Build base
           command: |
-          export aws_access_key=$aws_access_key
-          export aws_secret_key=$aws_secret_key
+          aws_access_key: <%= ENV['aws_access_key'] %>
+          aws_secret_key: <%= ENV['aws_secret_key'] %>
           sh buildAmi.sh
           no_output_timeout: 30m
 
