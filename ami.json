@@ -8,7 +8,6 @@
       "source_ami": "ami-068663a3c619dd892",
       "ami_users":"934555267499",
       "ssh_username": "ubuntu"
-      
     },
     "builders": [
       {
