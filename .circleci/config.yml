@@ -28,11 +28,10 @@ jobs:
             echo "export PATH=$PATH:~/packer/" >> ~/.bashrc
       - run:
           command: pwd && ls
-      - run:
-          name: Setup Environment Variables
-          command: |
-            export aws_access_key=$aws_access_key
-            export aws_secret_key=$aws_secret_key
+      # - run:
+      #     name: Setup Environment Variables
+      #     command: |
+
       - run:
           name: Build base
           command: sh buildAmi.sh
