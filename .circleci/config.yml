@@ -30,9 +30,8 @@ jobs:
           command: pwd && ls
       - run:
           name: Build base
-          command:
-          sh buildAmi.sh
-          
+          command: sh buildAmi.sh
+
           no_output_timeout: 30m
 
 workflows:
