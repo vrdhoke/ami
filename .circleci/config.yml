@@ -28,7 +28,6 @@ jobs:
               -var "aws_access_key=${aws_access_key}" \
               -var "aws_secret_key=${aws_secret_key}" \
               -var "subnet_id=${subnet_id}" \
-              -var "source_ami=${source_ami}" \
               -var "ami_users=${ami_users}" \
               ami.json
           no_output_timeout: 30m
