@@ -1,10 +1,10 @@
 {
     "variables": {
-      "aws_access_key": "{{env `aws_access_key`}}",
-      "aws_secret_key": "{{env `aws_secret_key`}}",
+      "aws_access_key": "",
+      "aws_secret_key": "",
       "aws_region": "",
       "subnet_id": "",
-      "ami_description": "",
+      "ami_description": "AMI for Assignment 4 using packer",
       "source_ami": "ami-068663a3c619dd892",
       "ami_users":"934555267499",
       "ssh_username": "ubuntu"
