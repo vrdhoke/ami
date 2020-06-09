@@ -45,5 +45,6 @@ workflows:
     jobs:
       - validate
       - build-base:
-          requires:
-            - validate
+          filters:
+            branches:
+              only: master
