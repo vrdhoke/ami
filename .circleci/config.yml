@@ -19,23 +19,17 @@ jobs:
       - attach_workspace:
           at: ~/packer
       - run:
-          name: Install Packer
-          command: |
-            cd ~/
-            cd packer
-            wget https://releases.hashicorp.com/packer/0.9.0/packer_0.9.0_linux_386.zip
-            unzip packer_0.9.0_linux_386.zip
-            echo "export PATH=$PATH:~/packer/" >> ~/.bashrc
-      - run:
           command: pwd && ls
       - run:
           name: Build base
           command: |
-            ./packer build \
-              -var "aws_region=us-east-1" \
+              packer build \
+              -var "aws_region=${aws_region}" \
               -var "aws_access_key=${aws_access_key}" \
               -var "aws_secret_key=${aws_secret_key}" \
-              -var "subnet_id=subnet-09c00b56" \
+              -var "subnet_id=${subnet_id}" \
+              -var "source_ami=${source_ami}" \
+              -var "ami_users=${ami_users}" \
               ami.json
           no_output_timeout: 30m
 
