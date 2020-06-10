@@ -19,8 +19,6 @@ jobs:
       - attach_workspace:
           at: ~/packer
       - run:
-          command: pwd && ls
-      - run:
           name: Build base
           command: |
             packer build \
