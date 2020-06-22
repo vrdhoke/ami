@@ -5,7 +5,7 @@
       "aws_region": "",
       "subnet_id": "",
       "ami_description": "AMI for Assignment 4 using packer",
-      "source_ami": "ami-068663a3c619dd892",
+      "source_ami": "ami-0d221091ef7082bcf",
       "ami_users":"",
       "ssh_username": "ubuntu"
     },
@@ -41,7 +41,14 @@
           "sudo apt update -y",
           "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -",
           "sudo apt install -y nodejs",
-          "node --version"
+          "node --version",
+          "sudo apt-get install ruby",
+          "sudo apt-get install wget",
+          "cd /home/ubuntu",
+          "wget https://codedeploy.vaibhavdhoke.me.s3.us-east-1.amazonaws.com/latest/install",
+          "chmod +x ./install",
+          "sudo ./install auto",
+          "sudo apt install awscli -y"
         ]
       }
     ]
