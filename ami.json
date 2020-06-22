@@ -5,7 +5,7 @@
       "aws_region": "",
       "subnet_id": "",
       "ami_description": "AMI for Assignment 4 using packer",
-      "source_ami": "ami-0d221091ef7082bcf",
+      "source_ami": "ami-0ac80df6eff0e70b5",
       "ami_users":"",
       "ssh_username": "ubuntu"
     },
