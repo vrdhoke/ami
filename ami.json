@@ -42,13 +42,13 @@
           "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -",
           "sudo apt install -y nodejs",
           "node --version",
+          "sudo apt install awscli -y",
           "sudo apt-get install ruby -y",
           "sudo apt-get install wget -y",
           "cd /home/ubuntu",
           "wget https://codedeploy.vaibhavdhoke.me.s3.us-east-1.amazonaws.com/latest/install",
           "chmod +x ./install",
-          "sudo ./install auto",
-          "sudo apt install awscli -y"
+          "sudo ./install auto"
         ]
       }
     ]
