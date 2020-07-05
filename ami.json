@@ -39,12 +39,6 @@
         "inline": [
           "pwd && ls",
           "sudo apt update -y",
-          "wget https://s3.us-east-1.amazonaws.com/amazoncloudwatch-agent-us-east-1/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
-          "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
-          "sudo systemctl enable amazon-cloudwatch-agent.service",
-          "sudo service amazon-cloudwatch-agent start",
-          "sudo systemctl status amazon-cloudwatch-agent.service",
-          "sudo apt update -y",
           "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -",
           "sudo apt install -y nodejs",
           "node --version",
@@ -58,7 +52,12 @@
           "chmod +x ./install",
           "sudo ./install auto",
           "sudo service codedeploy-agent start",
-          "sudo service codedeploy-agent status"
+          "sudo service codedeploy-agent status",
+          "wget https://s3.us-east-1.amazonaws.com/amazoncloudwatch-agent-us-east-1/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
+          "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
+          "sudo systemctl enable amazon-cloudwatch-agent.service",
+          "sudo service amazon-cloudwatch-agent start",
+          "sudo systemctl status amazon-cloudwatch-agent.service"
         ]
       }
     ]
